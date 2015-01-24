@@ -1,0 +1,61 @@
+
+plugin.tx_diskographie {
+	view {
+		templateRootPath = {$plugin.tx_diskographie.view.templateRootPath}
+		partialRootPath = {$plugin.tx_diskographie.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_diskographie.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_diskographie.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_diskographie._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-diskographie table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-diskographie table th {
+		font-weight:bold;
+	}
+
+	.tx-diskographie table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)
+
+ # Module configuration
+module.tx_diskographie {
+	persistence {
+		storagePid = {$module.tx_diskographie.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_diskographie.view.templateRootPath}
+		partialRootPath = {$module.tx_diskographie.view.partialRootPath}
+		layoutRootPath = {$module.tx_diskographie.view.layoutRootPath}
+	}
+}

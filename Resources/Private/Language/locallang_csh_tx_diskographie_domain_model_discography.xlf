@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-24T09:37:18Z" product-name="diskographie">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="artists.description">
+				<source>artists</source>
+			</trans-unit>
+			<trans-unit id="release_type.description">
+				<source>releaseType</source>
+			</trans-unit>
+			<trans-unit id="phonogram_type.description">
+				<source>phonogramType</source>
+			</trans-unit>
+			<trans-unit id="releases.description">
+				<source>releases</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
