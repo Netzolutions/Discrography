@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-24T09:37:18Z" product-name="diskographie">
+		<header/>
+		<body>
+			<trans-unit id="primary_release.description">
+				<source>primaryRelease</source>
+			</trans-unit>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="publication_date.description">
+				<source>publicationDate</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="cover.description">
+				<source>cover</source>
+			</trans-unit>
+			<trans-unit id="discs.description">
+				<source>discs</source>
+			</trans-unit>
+			<trans-unit id="label_number.description">
+				<source>labelNumber</source>
+			</trans-unit>
+			<trans-unit id="country.description">
+				<source>country</source>
+			</trans-unit>
+			<trans-unit id="rarity.description">
+				<source>rarity</source>
+			</trans-unit>
+			<trans-unit id="track_list.description">
+				<source>trackList</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

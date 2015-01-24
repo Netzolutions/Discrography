@@ -1,0 +1,34 @@
+
+config.tx_extbase{
+    persistence{
+        classes{
+
+            Netzcript\Lyrics\Domain\Model\Artists {
+                subclasses {
+                    Tx_Diskographie_Artists = Netzcript\Diskographie\Domain\Model\Artists
+					
+          		}
+            }
+            Netzcript\Lyrics\Domain\Model\Lyrics {
+                subclasses {
+                    Tx_Diskographie_Lyrics = Netzcript\Diskographie\Domain\Model\Lyrics
+					
+          		}
+            }
+            Netzcript\Diskographie\Domain\Model\Artists {
+                mapping {
+                    tableName = tx_lyrics_domain_model_artists
+                    recordType = Tx_Diskographie_Artists
+                }
+            }
+            
+            Netzcript\Diskographie\Domain\Model\Lyrics {
+                mapping {
+                    tableName = tx_lyrics_domain_model_lyrics
+                    recordType = Tx_Diskographie_Lyrics
+                }
+            }
+            
+    	}
+    }
+}

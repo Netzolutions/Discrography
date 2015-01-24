@@ -1,0 +1,30 @@
+
+plugin.tx_diskographie {
+	view {
+		# cat=plugin.tx_diskographie/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:diskographie/Resources/Private/Templates/
+		# cat=plugin.tx_diskographie/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:diskographie/Resources/Private/Partials/
+		# cat=plugin.tx_diskographie/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:diskographie/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_diskographie//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}
+
+module.tx_diskographie {
+	view {
+		# cat=module.tx_diskographie/file; type=string; label=Path to template root (BE)
+		templateRootPath = EXT:diskographie/Resources/Private/Backend/Templates/
+		# cat=module.tx_diskographie/file; type=string; label=Path to template partials (BE)
+		partialRootPath = EXT:diskographie/Resources/Private/Backend/Partials/
+		# cat=module.tx_diskographie/file; type=string; label=Path to template layouts (BE)
+		layoutRootPath = EXT:diskographie/Resources/Private/Backend/Layouts/
+	}
+	persistence {
+		# cat=module.tx_diskographie//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}
