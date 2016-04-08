@@ -1,12 +1,11 @@
 <?php
 namespace Netzcript\Diskographie\Domain\Repository;
 
-
 /***************************************************************
  *
  *  Copyright notice
  *
- *  (c) 2015 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+ *  (c) 2015-2016 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
  *
  *  All rights reserved
  *
@@ -27,10 +26,34 @@ namespace Netzcript\Diskographie\Domain\Repository;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Extbase\Persistence\Generic\Query;
+use TYPO3\CMS\Extbase\Persistence\Repository;
+
 /**
  * The repository for Discographies
  */
-class DiscographyRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class DiscographyRepository extends Repository
+{
 
-	
+    public function findOldDiscography()
+    {
+        /** @var Query $query */
+        $query = $this->createQuery();
+        $query->statement("
+SELECT  'id',  'name',  'artist',  'time',  LEFT('desc_c', 256),  'type',  LEFT('pic', 256),  'discs',  'label_nr',  'land',  'rar',  'primary_a',  'pid' 
+FROM 'disco' 
+ORDER BY 'id' DESC");
+        return $query->execute(true);
+    }
+
+    public function findOldDiscographyVersions($disco)
+    {
+        /** @var Query $query */
+        $query = $this->createQuery();
+        $query->statement("
+SELECT  'id',  'name',  'artist',  'time',  LEFT('desc_c', 256),  'type',  LEFT('pic', 256),  'discs',  'label_nr',  'land',  'rar',  'primary_a',  'pid'
+FROM 'disco' 
+ORDER BY 'id' DESC");
+        return $query->execute(true);
+    }
 }

@@ -86,7 +86,7 @@ class DiscographyTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setArtistsForObjectStorageContainingArtistsSetsArtists() {
-		$artist = new \Netzcript\Diskographie\Domain\Model\Artists();
+		$artist = new \Netzcript\Diskographie\Domain\Model\Artist();
 		$objectStorageHoldingExactlyOneArtists = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$objectStorageHoldingExactlyOneArtists->attach($artist);
 		$this->subject->setArtists($objectStorageHoldingExactlyOneArtists);
@@ -102,7 +102,7 @@ class DiscographyTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function addArtistToObjectStorageHoldingArtists() {
-		$artist = new \Netzcript\Diskographie\Domain\Model\Artists();
+		$artist = new \Netzcript\Diskographie\Domain\Model\Artist();
 		$artistsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
 		$artistsObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($artist));
 		$this->inject($this->subject, 'artists', $artistsObjectStorageMock);
@@ -114,7 +114,7 @@ class DiscographyTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function removeArtistFromObjectStorageHoldingArtists() {
-		$artist = new \Netzcript\Diskographie\Domain\Model\Artists();
+		$artist = new \Netzcript\Diskographie\Domain\Model\Artist();
 		$artistsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
 		$artistsObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($artist));
 		$this->inject($this->subject, 'artists', $artistsObjectStorageMock);
@@ -186,7 +186,7 @@ class DiscographyTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setReleasesForObjectStorageContainingReleasesSetsReleases() {
-		$release = new \Netzcript\Diskographie\Domain\Model\Releases();
+		$release = new \Netzcript\Diskographie\Domain\Model\Release();
 		$objectStorageHoldingExactlyOneReleases = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$objectStorageHoldingExactlyOneReleases->attach($release);
 		$this->subject->setReleases($objectStorageHoldingExactlyOneReleases);
@@ -202,7 +202,7 @@ class DiscographyTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function addReleaseToObjectStorageHoldingReleases() {
-		$release = new \Netzcript\Diskographie\Domain\Model\Releases();
+		$release = new \Netzcript\Diskographie\Domain\Model\Release();
 		$releasesObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
 		$releasesObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($release));
 		$this->inject($this->subject, 'releases', $releasesObjectStorageMock);
@@ -214,7 +214,7 @@ class DiscographyTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function removeReleaseFromObjectStorageHoldingReleases() {
-		$release = new \Netzcript\Diskographie\Domain\Model\Releases();
+		$release = new \Netzcript\Diskographie\Domain\Model\Release();
 		$releasesObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
 		$releasesObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($release));
 		$this->inject($this->subject, 'releases', $releasesObjectStorageMock);

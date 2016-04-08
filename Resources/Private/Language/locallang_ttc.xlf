@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2016-04-2T09:37:18Z" product-name="diskographie">
+        <header/>
+        <body>
+            <trans-unit id="palette.info">
+                <source>Info</source>
+            </trans-unit>
+            <trans-unit id="tabs.tracks">
+                <source>Tracks</source>
+            </trans-unit>
+            <trans-unit id="tabs.cover">
+                <source>Cover</source>
+            </trans-unit>
+            <trans-unit id="tabs.overrides">
+                <source>Overrides</source>
+            </trans-unit>
+            <trans-unit id="tabs.releases">
+                <source>Releases</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

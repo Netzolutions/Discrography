@@ -1,12 +1,11 @@
 <?php
 namespace Netzcript\Diskographie\Domain\Model;
 
-
 /***************************************************************
  *
  *  Copyright notice
  *
- *  (c) 2015 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+ *  (c) 2015-2016 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
  *
  *  All rights reserved
  *
@@ -28,9 +27,11 @@ namespace Netzcript\Diskographie\Domain\Model;
  ***************************************************************/
 
 /**
- * Artists
+ * Class Artist
+ * @package Netzcript\Diskographie\Domain\Model
  */
-class Artists extends \Netzcript\Lyrics\Domain\Model\Artists {
+class Artist extends \Netzcript\Lyrics\Domain\Model\Artist
+{
 
 	
 }

@@ -27,7 +27,7 @@ namespace Netzcript\Diskographie\Tests\Unit\Domain\Model;
  ***************************************************************/
 
 /**
- * Test case for class \Netzcript\Diskographie\Domain\Model\Releases.
+ * Test case for class \Netzcript\Diskographie\Domain\Model\Release.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -36,12 +36,12 @@ namespace Netzcript\Diskographie\Tests\Unit\Domain\Model;
  */
 class ReleasesTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
-	 * @var \Netzcript\Diskographie\Domain\Model\Releases
+	 * @var \Netzcript\Diskographie\Domain\Model\Release
 	 */
 	protected $subject = NULL;
 
 	protected function setUp() {
-		$this->subject = new \Netzcript\Diskographie\Domain\Model\Releases();
+		$this->subject = new \Netzcript\Diskographie\Domain\Model\Release();
 	}
 
 	protected function tearDown() {
@@ -263,7 +263,7 @@ class ReleasesTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	public function getTrackListReturnsInitialValueForTracks() {
 		$this->assertEquals(
 			NULL,
-			$this->subject->getTrackList()
+			$this->subject->getOverrideTrack()
 		);
 	}
 
@@ -271,8 +271,8 @@ class ReleasesTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setTrackListForTracksSetsTrackList() {
-		$trackListFixture = new \Netzcript\Diskographie\Domain\Model\Tracks();
-		$this->subject->setTrackList($trackListFixture);
+		$trackListFixture = new \Netzcript\Diskographie\Domain\Model\Track();
+		$this->subject->setOverrideTrack($trackListFixture);
 
 		$this->assertAttributeEquals(
 			$trackListFixture,

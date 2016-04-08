@@ -1,12 +1,11 @@
 <?php
 namespace Netzcript\Diskographie\Controller;
 
-
 /***************************************************************
  *
  *  Copyright notice
  *
- *  (c) 2015 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+ *  (c) 2015-2016 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
  *
  *  All rights reserved
  *
@@ -27,104 +26,118 @@ namespace Netzcript\Diskographie\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Netzcript\Diskographie\Domain\Model\Discography;
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
 /**
- * DiscographyController
+ * Class DiscographyController
+ * @package Netzcript\Diskographie\Controller
  */
-class DiscographyController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class DiscographyController extends ActionController
+{
 
-	/**
-	 * discographyRepository
-	 *
-	 * @var \Netzcript\Diskographie\Domain\Repository\DiscographyRepository
-	 * @inject
-	 */
-	protected $discographyRepository = NULL;
+    /**
+     * discographyRepository
+     *
+     * @var \Netzcript\Diskographie\Domain\Repository\DiscographyRepository
+     * @inject
+     */
+    protected $discographyRepository = NULL;
 
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$discographies = $this->discographyRepository->findAll();
-		$this->view->assign('discographies', $discographies);
-	}
+    /**
+     * action list
+     *
+     * @return void
+     */
+    public function listAction()
+    {
+        $discographies = $this->discographyRepository->findAll();
+        $this->view->assign('discographies', $discographies);
+    }
 
-	/**
-	 * action show
-	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Discography $discography
-	 * @return void
-	 */
-	public function showAction(\Netzcript\Diskographie\Domain\Model\Discography $discography) {
-		$this->view->assign('discography', $discography);
-	}
+    /**
+     * action show
+     *
+     * @param Discography $discography
+     * @return void
+     */
+    public function showAction(Discography $discography)
+    {
+        $this->view->assign('discography', $discography);
+    }
 
-	/**
-	 * action new
-	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Discography $newDiscography
-	 * @ignorevalidation $newDiscography
-	 * @return void
-	 */
-	public function newAction(\Netzcript\Diskographie\Domain\Model\Discography $newDiscography = NULL) {
-		$this->view->assign('newDiscography', $newDiscography);
-	}
+    /**
+     * action new
+     *
+     * @param Discography $newDiscography
+     * @ignorevalidation $newDiscography
+     * @return void
+     */
+    public function newAction(Discography $newDiscography = NULL)
+    {
+        $this->view->assign('newDiscography', $newDiscography);
+    }
 
-	/**
-	 * action create
-	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Discography $newDiscography
-	 * @return void
-	 */
-	public function createAction(\Netzcript\Diskographie\Domain\Model\Discography $newDiscography) {
-		$this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-		$this->discographyRepository->add($newDiscography);
-		$this->redirect('list');
-	}
+    /**
+     * action create
+     *
+     * @param Discography $newDiscography
+     * @return void
+     */
+    public function createAction(Discography $newDiscography)
+    {
+        $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', AbstractMessage::ERROR);
+        $this->discographyRepository->add($newDiscography);
+        $this->redirect('list');
+    }
 
-	/**
-	 * action edit
-	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Discography $discography
-	 * @ignorevalidation $discography
-	 * @return void
-	 */
-	public function editAction(\Netzcript\Diskographie\Domain\Model\Discography $discography) {
-		$this->view->assign('discography', $discography);
-	}
+    /**
+     * action edit
+     *
+     * @param Discography $discography
+     * @ignorevalidation $discography
+     * @return void
+     */
+    public function editAction(Discography $discography)
+    {
+        $this->view->assign('discography', $discography);
+    }
 
-	/**
-	 * action update
-	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Discography $discography
-	 * @return void
-	 */
-	public function updateAction(\Netzcript\Diskographie\Domain\Model\Discography $discography) {
-		$this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-		$this->discographyRepository->update($discography);
-		$this->redirect('list');
-	}
+    /**
+     * action update
+     *
+     * @param Discography $discography
+     * @return void
+     */
+    public function updateAction(Discography $discography)
+    {
+        $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', AbstractMessage::ERROR);
+        $this->discographyRepository->update($discography);
+        $this->redirect('list');
+    }
 
-	/**
-	 * action delete
-	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Discography $discography
-	 * @return void
-	 */
-	public function deleteAction(\Netzcript\Diskographie\Domain\Model\Discography $discography) {
-		$this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-		$this->discographyRepository->remove($discography);
-		$this->redirect('list');
-	}
+    /**
+     * action delete
+     *
+     * @param Discography $discography
+     * @return void
+     */
+    public function deleteAction(Discography $discography)
+    {
+        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', AbstractMessage::ERROR);
+        $this->discographyRepository->remove($discography);
+        $this->redirect('list');
+    }
 
-	/**
-	 * action search
-	 *
-	 * @return void
-	 */
-	public function searchAction() {
-		
-	}
+    /**
+     * action search
+     *
+     * @return void
+     */
+    public function searchAction()
+    {
+
+    }
 
 }

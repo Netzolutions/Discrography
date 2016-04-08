@@ -7,9 +7,10 @@ CREATE TABLE tx_diskographie_domain_model_discography (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
 	artists int(11) unsigned DEFAULT '0' NOT NULL,
+	tracks int(11) unsigned DEFAULT '0' NOT NULL,
 	release_type int(11) unsigned DEFAULT '0',
-	phonogram_type int(11) unsigned DEFAULT '0',
 	releases int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
@@ -37,15 +38,6 @@ CREATE TABLE tx_diskographie_domain_model_discography (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
  KEY language (l10n_parent,sys_language_uid)
-
-);
-
-#
-# Table structure for table 'tx_lyrics_domain_model_artists'
-#
-CREATE TABLE tx_lyrics_domain_model_artists (
-
-	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 
 );
 
@@ -124,9 +116,9 @@ CREATE TABLE tx_diskographie_domain_model_phonogramtype (
 );
 
 #
-# Table structure for table 'tx_diskographie_domain_model_releases'
+# Table structure for table 'tx_diskographie_domain_model_release'
 #
-CREATE TABLE tx_diskographie_domain_model_releases (
+CREATE TABLE tx_diskographie_domain_model_release (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -142,7 +134,8 @@ CREATE TABLE tx_diskographie_domain_model_releases (
 	label_number varchar(255) DEFAULT '' NOT NULL,
 	country varchar(255) DEFAULT '' NOT NULL,
 	rarity varchar(255) DEFAULT '' NOT NULL,
-	track_list int(11) unsigned DEFAULT '0',
+	override_tracks int(11) unsigned DEFAULT '0',
+	phonogram_type int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -172,26 +165,23 @@ CREATE TABLE tx_diskographie_domain_model_releases (
 );
 
 #
-# Table structure for table 'tx_lyrics_domain_model_lyrics'
+# Table structure for table 'tx_diskographie_domain_model_track'
 #
-CREATE TABLE tx_lyrics_domain_model_lyrics (
-
-	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
-
-);
-
-#
-# Table structure for table 'tx_diskographie_domain_model_tracks'
-#
-CREATE TABLE tx_diskographie_domain_model_tracks (
+CREATE TABLE tx_diskographie_domain_model_track (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
+	track_number int(11) unsigned DEFAULT '0',
 	title varchar(255) DEFAULT '' NOT NULL,
 	time varchar(255) DEFAULT '' NOT NULL,
 	description varchar(255) DEFAULT '' NOT NULL,
 	lyrics int(11) unsigned DEFAULT '0',
+
+	discography int(11) unsigned,
+	discography_release int(11) unsigned,
+
+	override tinyint(4) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -222,18 +212,9 @@ CREATE TABLE tx_diskographie_domain_model_tracks (
 );
 
 #
-# Table structure for table 'tx_diskographie_domain_model_releases'
-#
-CREATE TABLE tx_diskographie_domain_model_releases (
-
-	discography  int(11) unsigned DEFAULT '0' NOT NULL,
-
-);
-
-#
 # Table structure for table 'tx_diskographie_discography_artists_mm'
 #
-CREATE TABLE tx_diskographie_discography_artists_mm (
+CREATE TABLE tx_diskographie_discography_artist_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

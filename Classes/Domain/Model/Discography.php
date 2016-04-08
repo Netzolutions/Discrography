@@ -1,12 +1,11 @@
 <?php
 namespace Netzcript\Diskographie\Domain\Model;
 
-
 /***************************************************************
  *
  *  Copyright notice
  *
- *  (c) 2015 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+ *  (c) 2015-2016 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
  *
  *  All rights reserved
  *
@@ -27,69 +26,56 @@ namespace Netzcript\Diskographie\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-/**
- * Discography
- */
-class Discography extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
+/**
+ * Class Discography
+ * @package Netzcript\Diskographie\Domain\Model
+ */
+class Discography extends AbstractEntity
+{
 	/**
-	 * title
-	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $title = '';
 
 	/**
-	 * artists
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Diskographie\Domain\Model\Artists>
-	 * @lazy
+	 * @var string
+	 */
+	protected $description = '';
+
+	/**
+	 * @var ObjectStorage<\Netzcript\Diskographie\Domain\Model\Artist>
 	 */
 	protected $artists = NULL;
 
 	/**
-	 * releaseType
-	 *
-	 * @var \Netzcript\Diskographie\Domain\Model\ReleaseType
+	 * @var ReleaseType
 	 */
 	protected $releaseType = NULL;
 
 	/**
-	 * phonogramType
-	 *
-	 * @var \Netzcript\Diskographie\Domain\Model\PhonogramType
-	 */
-	protected $phonogramType = NULL;
-
-	/**
-	 * releases
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Diskographie\Domain\Model\Releases>
+	 * @var ObjectStorage<\Netzcript\Diskographie\Domain\Model\Release>
 	 * @cascade remove
 	 * @lazy
 	 */
 	protected $releases = NULL;
 
 	/**
+	 * Default trackList
+	 * @var ObjectStorage<\Netzcript\Diskographie\Domain\Model\Track>
+	 */
+	protected $tracks = NULL;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
-		//Do not remove the next line: It would break the functionality
-		$this->initStorageObjects();
-	}
-
-	/**
-	 * Initializes all ObjectStorage properties
-	 * Do not modify this method!
-	 * It will be rewritten on each save in the extension builder
-	 * You may modify the constructor of this class instead
-	 *
-	 * @return void
-	 */
-	protected function initStorageObjects() {
-		$this->artists = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->releases = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->artists = new ObjectStorage();
+		$this->releases = new ObjectStorage();
+		$this->tracks = new ObjectStorage();
 	}
 
 	/**
@@ -112,29 +98,29 @@ class Discography extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Adds a Artists
+	 * Adds a Artist
 	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Artists $artist
+	 * @param Artist $artist
 	 * @return void
 	 */
-	public function addArtist(\Netzcript\Diskographie\Domain\Model\Artists $artist) {
+	public function addArtist(Artist $artist) {
 		$this->artists->attach($artist);
 	}
 
 	/**
-	 * Removes a Artists
+	 * Removes a Artist
 	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Artists $artistToRemove The Artists to be removed
+	 * @param Artist $artistToRemove The Artist to be removed
 	 * @return void
 	 */
-	public function removeArtist(\Netzcript\Diskographie\Domain\Model\Artists $artistToRemove) {
+	public function removeArtist(Artist $artistToRemove) {
 		$this->artists->detach($artistToRemove);
 	}
 
 	/**
 	 * Returns the artists
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Diskographie\Domain\Model\Artists> $artists
+	 * @return ObjectStorage<\Netzcript\Diskographie\Domain\Model\Artist> $artists
 	 */
 	public function getArtists() {
 		return $this->artists;
@@ -143,17 +129,17 @@ class Discography extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the artists
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Diskographie\Domain\Model\Artists> $artists
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Diskographie\Domain\Model\Artist> $artists
 	 * @return void
 	 */
-	public function setArtists(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $artists) {
+	public function setArtists(ObjectStorage $artists) {
 		$this->artists = $artists;
 	}
 
 	/**
 	 * Returns the releaseType
 	 *
-	 * @return \Netzcript\Diskographie\Domain\Model\ReleaseType $releaseType
+	 * @return ReleaseType $releaseType
 	 */
 	public function getReleaseType() {
 		return $this->releaseType;
@@ -162,56 +148,37 @@ class Discography extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the releaseType
 	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\ReleaseType $releaseType
+	 * @param ReleaseType $releaseType
 	 * @return void
 	 */
-	public function setReleaseType(\Netzcript\Diskographie\Domain\Model\ReleaseType $releaseType) {
+	public function setReleaseType(ReleaseType $releaseType) {
 		$this->releaseType = $releaseType;
 	}
 
 	/**
-	 * Returns the phonogramType
+	 * Adds a Release
 	 *
-	 * @return \Netzcript\Diskographie\Domain\Model\PhonogramType $phonogramType
-	 */
-	public function getPhonogramType() {
-		return $this->phonogramType;
-	}
-
-	/**
-	 * Sets the phonogramType
-	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\PhonogramType $phonogramType
+	 * @param Release $release
 	 * @return void
 	 */
-	public function setPhonogramType(\Netzcript\Diskographie\Domain\Model\PhonogramType $phonogramType) {
-		$this->phonogramType = $phonogramType;
-	}
-
-	/**
-	 * Adds a Releases
-	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Releases $release
-	 * @return void
-	 */
-	public function addRelease(\Netzcript\Diskographie\Domain\Model\Releases $release) {
+	public function addRelease(Release $release) {
 		$this->releases->attach($release);
 	}
 
 	/**
-	 * Removes a Releases
+	 * Removes a Release
 	 *
-	 * @param \Netzcript\Diskographie\Domain\Model\Releases $releaseToRemove The Releases to be removed
+	 * @param Release $releaseToRemove The Release to be removed
 	 * @return void
 	 */
-	public function removeRelease(\Netzcript\Diskographie\Domain\Model\Releases $releaseToRemove) {
+	public function removeRelease(Release $releaseToRemove) {
 		$this->releases->detach($releaseToRemove);
 	}
 
 	/**
 	 * Returns the releases
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Diskographie\Domain\Model\Releases> $releases
+	 * @return ObjectStorage<\Netzcript\Diskographie\Domain\Model\Release> $releases
 	 */
 	public function getReleases() {
 		return $this->releases;
@@ -220,11 +187,27 @@ class Discography extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the releases
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Diskographie\Domain\Model\Releases> $releases
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Diskographie\Domain\Model\Release> $releases
 	 * @return void
 	 */
-	public function setReleases(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $releases) {
+	public function setReleases(ObjectStorage $releases) {
 		$this->releases = $releases;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDescription()
+	{
+		return $this->description;
+	}
+
+	/**
+	 * @param string $description
+	 */
+	public function setDescription($description)
+	{
+		$this->description = $description;
 	}
 
 }

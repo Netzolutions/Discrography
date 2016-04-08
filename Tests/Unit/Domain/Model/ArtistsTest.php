@@ -27,7 +27,7 @@ namespace Netzcript\Diskographie\Tests\Unit\Domain\Model;
  ***************************************************************/
 
 /**
- * Test case for class \Netzcript\Diskographie\Domain\Model\Artists.
+ * Test case for class \Netzcript\Diskographie\Domain\Model\Artist.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
@@ -36,12 +36,12 @@ namespace Netzcript\Diskographie\Tests\Unit\Domain\Model;
  */
 class ArtistsTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
-	 * @var \Netzcript\Diskographie\Domain\Model\Artists
+	 * @var \Netzcript\Diskographie\Domain\Model\Artist
 	 */
 	protected $subject = NULL;
 
 	protected function setUp() {
-		$this->subject = new \Netzcript\Diskographie\Domain\Model\Artists();
+		$this->subject = new \Netzcript\Diskographie\Domain\Model\Artist();
 	}
 
 	protected function tearDown() {

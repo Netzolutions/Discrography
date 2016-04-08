@@ -29,19 +29,39 @@ namespace Netzcript\Diskographie\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractValueObject;
 
 /**
- * Class PhonogramType
+ * Class Track
  * @package Netzcript\Diskographie\Domain\Model
  */
-class PhonogramType extends AbstractValueObject
+class Track extends AbstractValueObject
 {
 
     /**
      * title
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $title = '';
+
+    /**
+     * time
+     *
+     * @var string
+     */
+    protected $time = '';
+
+    /**
+     * description
+     *
+     * @var string
+     */
+    protected $description = '';
+
+    /**
+     * lyrics
+     *
+     * @var \Netzcript\Diskographie\Domain\Model\Lyrics
+     */
+    protected $lyrics = NULL;
 
     /**
      * Returns the title
@@ -62,6 +82,69 @@ class PhonogramType extends AbstractValueObject
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * Returns the time
+     *
+     * @return string $time
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * Sets the time
+     *
+     * @param string $time
+     * @return void
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * Returns the description
+     *
+     * @return string $description
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Sets the description
+     *
+     * @param string $description
+     * @return void
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Returns the lyrics
+     *
+     * @return \Netzcript\Diskographie\Domain\Model\Lyrics $lyrics
+     */
+    public function getLyrics()
+    {
+        return $this->lyrics;
+    }
+
+    /**
+     * Sets the lyrics
+     *
+     * @param \Netzcript\Diskographie\Domain\Model\Lyrics $lyrics
+     * @return void
+     */
+    public function setLyrics(\Netzcript\Diskographie\Domain\Model\Lyrics $lyrics)
+    {
+        $this->lyrics = $lyrics;
     }
 
 }

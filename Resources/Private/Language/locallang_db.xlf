@@ -9,6 +9,9 @@
 			<trans-unit id="tx_diskographie_domain_model_discography.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_diskographie_domain_model_discography.description">
+				<source>Description</source>
+			</trans-unit>
 			<trans-unit id="tx_diskographie_domain_model_discography.artists">
 				<source>Artists</source>
 			</trans-unit>
@@ -20,6 +23,9 @@
 			</trans-unit>
 			<trans-unit id="tx_diskographie_domain_model_discography.releases">
 				<source>Releases</source>
+			</trans-unit>
+			<trans-unit id="tx_diskographie_domain_model_discography.tracks">
+				<source>Tracks</source>
 			</trans-unit>
 			<trans-unit id="tx_diskographie_domain_model_artists">
 				<source>Artists</source>
@@ -39,38 +45,38 @@
 			<trans-unit id="tx_diskographie_domain_model_phonogramtype.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases">
+			<trans-unit id="tx_diskographie_domain_model_release">
 				<source>Releases</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.primary_release">
+			<trans-unit id="tx_diskographie_domain_model_release.primary_release">
 				<source>Primary Release</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.title">
+			<trans-unit id="tx_diskographie_domain_model_release.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.publication_date">
+			<trans-unit id="tx_diskographie_domain_model_release.publication_date">
 				<source>Publication Date</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.description">
+			<trans-unit id="tx_diskographie_domain_model_release.description">
 				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.cover">
+			<trans-unit id="tx_diskographie_domain_model_release.cover">
 				<source>Cover</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.discs">
+			<trans-unit id="tx_diskographie_domain_model_release.discs">
 				<source>Discs</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.label_number">
+			<trans-unit id="tx_diskographie_domain_model_release.label_number">
 				<source>Label Number</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.country">
+			<trans-unit id="tx_diskographie_domain_model_release.country">
 				<source>Country</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.rarity">
+			<trans-unit id="tx_diskographie_domain_model_release.rarity">
 				<source>Rarity</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_releases.track_list">
-				<source>Track List</source>
+			<trans-unit id="tx_diskographie_domain_model_release.override_tracks">
+				<source>Override Tracks</source>
 			</trans-unit>
 			<trans-unit id="tx_diskographie_domain_model_lyrics">
 				<source>Lyrics</source>
@@ -78,20 +84,26 @@
 			<trans-unit id="tx_lyrics_domain_model_lyrics.tx_extbase_type.Tx_Diskographie_Lyrics">
 				<source>Discography Lyrics</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_tracks">
+			<trans-unit id="tx_diskographie_domain_model_track">
 				<source>Tracks</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_tracks.title">
+			<trans-unit id="tx_diskographie_domain_model_track.track_number">
+				<source>Track number</source>
+			</trans-unit>
+			<trans-unit id="tx_diskographie_domain_model_track.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_tracks.time">
+			<trans-unit id="tx_diskographie_domain_model_track.time">
 				<source>Time</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_tracks.description">
+			<trans-unit id="tx_diskographie_domain_model_track.description">
 				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="tx_diskographie_domain_model_tracks.lyrics">
+			<trans-unit id="tx_diskographie_domain_model_track.lyrics">
 				<source>Lyrics</source>
+			</trans-unit>
+			<trans-unit id="tx_diskographie_domain_model_track.override">
+				<source>Override</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -42,6 +42,11 @@ class ConvertFromOld {
 
     public function Run()
     {
+        $discos = $this->discographyRepository->findOldDiscography();
 
+        foreach($discos as $disco)
+        {
+            $disco;
+        }
     }
 }
